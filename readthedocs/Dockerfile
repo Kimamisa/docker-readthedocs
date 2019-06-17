@@ -24,11 +24,13 @@ RUN apt-get -qq update && \
 
 # Install basic dependencies
 RUN apt-get -qq update && \
+    mkdir -p /usr/share/man/man1 && \
     apt-get install -qq --no-install-recommends \
         python-setuptools build-essential python-dev python-pip git libevent-dev \
         libxml2-dev libxslt1-dev gettext texlive texlive-latex-extra \
         wget \
-        nginx && \
+        nginx \
+        openjdk-8-jre && \
     rm -rf /var/lib/apt/lists/*
 
 # Install test dependencies
@@ -66,6 +68,7 @@ RUN ln -s $APPDIR/manage.py $APPDIR/readthedocs/manage.py && \
     chmod +x $APPDIR/bin/* && \
     chown -R py .
 
+RUN wget -nc https://netix.dl.sourceforge.net/project/plantuml/plantuml.jar -O /plantuml.jar
 
 # Docker config
 EXPOSE 80

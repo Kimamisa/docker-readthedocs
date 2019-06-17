@@ -45,6 +45,9 @@ server {
         internal;
     }
 
+    location /public_web_root {
+        internal;
+    }
 
     # Serve statics
     location /static {
