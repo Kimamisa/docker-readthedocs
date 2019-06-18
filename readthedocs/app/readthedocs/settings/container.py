@@ -42,6 +42,9 @@ class ContainerSettings(CommunityBaseSettings):
                 )
             ]
 
+        ELASTICSEARCH_DSL_AUTOSYNC = True
+        ELASTICSEARCH_DSL_AUTO_REFRESH = True
+
     @property
     def DATABASES(self):  # noqa
         if os.getenv('RTD_HAS_DATABASE', 'false').lower() == 'true':
@@ -113,6 +116,8 @@ class ContainerSettings(CommunityBaseSettings):
 
     USE_PROMOS = False
     DO_NOT_TRACK_ENABLED = True
+
+
 
 
 ContainerSettings.load_settings(__name__)

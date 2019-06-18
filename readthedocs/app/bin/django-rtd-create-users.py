@@ -1,4 +1,3 @@
-import os
 import readthedocs.settings.container as config
 from django.contrib.auth.models import User
 
@@ -8,9 +7,9 @@ try:
         config.ADMIN_EMAIL,
         config.ADMIN_PASSWORD
     )
-    print "Created {0} superuser".format(config.ADMIN_USERNAME)
+    print("Created {0} superuser".format(config.ADMIN_USERNAME))
 except:
-    print "Failed to create {0} user".format(config.ADMIN_USERNAME)
+    print("Failed to create {0} user".format(config.ADMIN_USERNAME))
 
 try:
     slumber = User.objects.create(
@@ -24,7 +23,7 @@ try:
 
     slumber.save()
 
-    print "Created {0} user".format(config.SLUMBER_USERNAME)
+    print("Created {0} user".format(config.SLUMBER_USERNAME))
 except:
-    print "Failed to create {0} user".format(config.SLUMBER_USERNAME)
+    print("Failed to create {0} user".format(config.SLUMBER_USERNAME))
 

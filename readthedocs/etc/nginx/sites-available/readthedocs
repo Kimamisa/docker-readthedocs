@@ -51,7 +51,7 @@ server {
 
     # Serve statics
     location /static {
-        root /app/media;
+        alias /app/static;
     }
 
     location /media {
