@@ -29,7 +29,7 @@ RUN apt-get -qq update && \
         python-setuptools build-essential python-dev python-pip git libevent-dev \
         libxml2-dev libssl-dev libxslt1-dev gettext texlive texlive-latex-extra zlib1g-dev libffi-dev \
         wget nginx libpq-dev libbz2-dev python3-bz2file \
-        openjdk-8-jre zip libcurl4-openssl-dev && \
+        openjdk-8-jre unzip libcurl4-openssl-dev && \
     rm -rf /var/lib/apt/lists/*
 
 RUN cd /usr/src && \

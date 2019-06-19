@@ -1,4 +1,4 @@
-FROM elasticsearch:1.7-alpine
-LABEL maintainer="Yevgeny Popovych <jmennius@gmail.com>"
+FROM docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+LABEL maintainer="Sami MAKKI <mail@samimakki.fr>"
 
-RUN /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-analysis-icu/2.7.0
+RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu

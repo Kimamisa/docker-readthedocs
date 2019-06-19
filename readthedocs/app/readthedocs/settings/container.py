@@ -44,6 +44,14 @@ class ContainerSettings(CommunityBaseSettings):
 
         ELASTICSEARCH_DSL_AUTOSYNC = True
         ELASTICSEARCH_DSL_AUTO_REFRESH = True
+        ELASTICSEARCH_DSL={
+            'default': {
+                'hosts': '{0}:{1}'.format(
+                    os.getenv('ELASTICSEARCH_HOST', 'elasticsearch'),
+                    os.getenv('ELASTICSEARCH_PORT', '9200')
+                )
+            },
+        }
 
     @property
     def DATABASES(self):  # noqa
