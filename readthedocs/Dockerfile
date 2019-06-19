@@ -75,7 +75,7 @@ RUN wget -q --no-check-certificate -O - \
 
 ## Copy configuration, scripts and patch RTD
 COPY . /
-#RUN find /patches -type f -exec patch -p1 -i {} \; && rm -rf /patches
+RUN find /patches -type f -exec patch -p1 -i {} \; && rm -rf /patches
 
 ## Copy special configuration for read the docs
 RUN ln -s $APPDIR/manage.py $APPDIR/readthedocs/manage.py && \

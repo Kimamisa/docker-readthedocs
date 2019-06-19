@@ -16,17 +16,17 @@ index 4bb8c355..af4e3a8d 100644
 --- a/readthedocs/builds/models.py
 +++ b/readthedocs/builds/models.py
 @@ -19,6 +19,7 @@ from django.utils.translation import ugettext
- from guardian.shortcuts import assign
+ from polymorphic.models import PolymorphicModel
  from taggit.managers import TaggableManager
- 
+
 +from readthedocs.core.resolver import resolve_path
+ import readthedocs.builds.automation_actions as actions
+ from readthedocs.config import LATEST_CONFIGURATION_VERSION
  from readthedocs.core.utils import broadcast
- from readthedocs.projects.constants import (
-     BITBUCKET_URL, GITHUB_URL, GITLAB_URL, PRIVACY_CHOICES, PRIVATE)
 @@ -151,6 +152,9 @@ class Version(models.Model):
          log.debug('TODO: Raise an exception here. Testing what cases it happens')
          return self.identifier
- 
+
 +    def get_url(self):
 +        return resolve_path(self.project, version_slug=self.slug)
 +
@@ -46,6 +46,6 @@ index 2ad5b885..f29d70a5 100644
      ],
      'downloads': [ {% for key, val in downloads.items %}
      ("{{ key }}", "{{ val }}"),{% endfor %}
--- 
+--
 2.17.1
 
