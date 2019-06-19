@@ -120,7 +120,7 @@ class ContainerSettings(CommunityBaseSettings):
 
     # Enable private Git repositories
     ALLOW_PRIVATE_REPOS = os.getenv('RTD_ALLOW_PRIVATE_REPOS', 'false').lower() == 'true'
-    SERVE_DOCS = ['private']
+    SERVE_DOCS = ['private', 'public']
 
     USE_PROMOS = False
     DO_NOT_TRACK_ENABLED = True

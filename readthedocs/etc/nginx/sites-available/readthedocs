@@ -31,7 +31,8 @@ server {
 
     # Serve public docs by nginx from public_web_root
     location /docs {
-        alias /app/public_web_root;
+        alias /app/public_web_root/;
+        index  index.html index.htm;
 
         # Let the backend handle this page in case of 404 - it may be private
         error_page 404 = @fallback;
